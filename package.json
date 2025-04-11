@@ -1,0 +1,18 @@
+{
+  "name": "micro-dev-runner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/WaltHuang-1412/micro-dev-runner.git",
+  "author": "Walter Huang <walt.huang.1412@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "concurrently -k \"yarn --cwd ../micro-auth start\" \"yarn --cwd ../micro-navbar serve\" \"yarn --cwd ../micro-sub serve\" \"wait-on http://localhost:8082 http://localhost:8080 http://localhost:8081 && yarn --cwd ../micro-root start\""
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3"
+  },
+  "devDependencies": {
+    "wait-on": "^8.0.3"
+  }
+}
